@@ -145,7 +145,7 @@ public class MySimpleMappingExceptionResolver {
 
 **Method 3**
 
-`Configuration` and `HandlerExceptionResolver`
+`@Configuration` and `HandlerExceptionResolver`
 
 ```java
 @Configuration
