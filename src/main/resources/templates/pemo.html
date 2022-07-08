@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaft Demo</title>
+</head>
+<body>
+<p>Anything?</p>
+<p th:text="'Thymeleaf will display this'">text</p>
+
+<span th:text="${message}"></span>
+
+<h3>Exam Results</h3>
+<div th:if="${score} >= 60">
+    You successfully passed the exam.
+    <div th:switch="${GPA}">You are
+        <span th:case="A">Excellent</span>
+        <span th:case="B">Good</span>
+        <span th:case="C">Okay</span>
+        <span th:case="D">Need improvement</span>
+    </div>
+</div>
+<div th:if="${score} < 60">
+    You failed the exam.
+</div>
+
+<h3>Thymeleaf Loop</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr th:each="user : ${users}" >
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.age}"></td>
+    </tr>
+</table>
+
+<h3>Thymeleaf Scope</h3>
+Request: <span th:text="${#httpServletRequest.getAttribute('myrequestname')}"></span><br />
+Session: <span th:text="${session.mysessionname}"></span><br />
+Application: <span th:text="${application.myapplicationname}"></span><br />
+
+<div th:if="${(param.id != null) and (param.name != null)}">
+    <h3>Thymeleaf Parameters</h3>
+    Id: <span th:text="${param.id[0]}"></span>,
+    Name: <span th:each="name : ${param.name}">
+            <span th:text="${name}"></span>
+        </span>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaft Demo</title>
+</head>
+<body>
+<p>Anything?</p>
+<p th:text="'Thymeleaf will display this'">text</p>
+
+<h3>Thymeleaf Scope</h3>
+Request: <span th:text="${#httpServletRequest.getAttribute('myrequestname')}"></span><br />
+Session: <span th:text="${session.mysessionname}"></span><br />
+Application: <span th:text="${application.myapplicationname}"></span><br />
+
+<h3>Thymeleaf URLs</h3>
+<!-- redirect to demo page without parameter -->
+<a th:href="@{~/pemo}">Visit pemo Page</a> <br />
+<!-- redirect to demo page with parameter -->
+<a th:href="@{~/pemo(id=1, name=eric, name=john)}">Visit Pemo page With Parameter</a>
+
+</table>
+</body>
+</html>

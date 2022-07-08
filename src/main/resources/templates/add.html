@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+<h3>Add User</h3>
+
+<form action="addUser" method="post">
+    <input type="text" name="id" hidden=hidden value=111>
+
+    <span th:errors="${user.name}" style="color:red"></span><br />
+    Username: <input type="text" name="name" /><br />
+
+    <span th:errors="${user.password}" style="color:red"></span><br />
+    Password: <input type="password" name="password"/><br />
+
+    <span th:errors="${user.age}" style="color:red"></span><br />
+    Age: <input type="text" name="age" /><br />
+
+    <span th:errors="${user.grade}" style="color:red"></span><br />
+    Grade: <input type="text" name="grade" /><br />
+
+    <span th:errors="${user.email}" style="color:red"></span><br />
+    Email: <input type="text" name="email" /><br />
+
+    <input type="submit" value="Add" >
+</form>
+<span th:onerror="${user.name} has been added successfully. Please add next one."></span>
+</body>
+</html>
